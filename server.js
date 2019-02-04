@@ -1,8 +1,16 @@
+"use strict";
 const express = require("express");
 const exphbar = require("express-handlebars");
 const path = require("path");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const redis = require("redis");
+
+//create redis client
+var redisClient = redis.createClient();
+redisClient.on("connect", () => {
+    console.log("redis Connected successfully")
+})
 
 //set port
 const PORT = 4000;
@@ -26,5 +34,5 @@ app.get('/', (req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server started http://localhost:${port} `);
+    console.log(`Server started http://localhost:${PORT} `);
 });
