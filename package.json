@@ -1,0 +1,11 @@
+{
+  "name": "redis-node",
+  "version": "1.0.0",
+  "description": "User management system using redis and express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "EngAhmedMahmoud",
+  "license": "ISC"
+}
