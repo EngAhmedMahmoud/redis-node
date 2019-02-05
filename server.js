@@ -32,6 +32,42 @@ app.use(methodOverride('_method'));
 app.get('/', (req, res, next) => {
     res.render('searchusers');
 });
+app.post('/user/search', (req, res, next) => {
+    let userId = req.body.userId;
+    redisClient.hgetall(userId, (error, object) => {
+        if (!object) {
+            res.render("searchusers", { error: "user Not fount" });
+        } else {
+            object.id = userId;
+            res.render('details', { user: object });
+        }
+    })
+});
+//add user
+app.get("/user/add", (req, res, next) => {
+    res.render("adduser");
+});
+//save user
+app.post("/user/add", (req, res, next) => {
+    let id = req.body.id;
+    let first_name = req.body.first_name;
+    let last_name = req.body.last_name;
+    let email = req.body.email;
+    let phone = req.body.phone;
+    redisClient.hmset(id, [
+        "first_name", first_name,
+        "last_name", last_name,
+        "email", email,
+        "phone", phone
+    ], (error, reply) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(reply);
+        }
+    })
+    res.redirect('/');
+})
 
 app.listen(PORT, () => {
     console.log(`Server started http://localhost:${PORT} `);
