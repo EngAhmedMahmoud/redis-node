@@ -67,7 +67,13 @@ app.post("/user/add", (req, res, next) => {
         }
     })
     res.redirect('/');
-})
+});
+//delete user
+app.delete('/user/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+    redisClient.del(id);
+    res.redirect('/');
+});
 
 app.listen(PORT, () => {
     console.log(`Server started http://localhost:${PORT} `);
