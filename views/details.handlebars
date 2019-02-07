@@ -4,6 +4,4 @@
     <li class="list-item">Phone:<strong>{{user.phone}}</strong></li>
 </ul>
 <a href="/" class="btn btn-secondary pull-left">Back</a>
-<form method="POST" action="/user/delete/{{user.id}}?_method=DELETE">
-    <input type="submit" class="btn btn-danger" value="delete">
-</form>
+<a class="btn btn-danger pull-left" href="/user/delete/{{user.id}}">Delete</a>
