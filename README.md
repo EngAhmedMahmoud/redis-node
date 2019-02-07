@@ -15,16 +15,15 @@ User CRUD application based on redis as a database for storing user data , retri
 
 - Install Nodejs and npm.
 ## Download and Running the project
-- Download project by using githup clone command 
+- Download project by using githup clone command or download zip file.
+```git clone https://github.com/EngAhmedMahmoud/redis-node.git```
 
-`git clone https://github.com/EngAhmedMahmoud/redis-node.git`
-or download zip file .
 - Change directory to project directory.
-`cd redis-node`
+``` cd redis-node ```
 - Run the following command to install required packages.
- `npm i `
+ ``` npm i ```
 - Run the following command to run the project.
- `node server.js`
+ ```node server.js```
 
 - Finally visit project url.
- `http://localhost:4000/`
+ ```http://localhost:4000/```
